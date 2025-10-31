@@ -13,7 +13,10 @@ body {
   background-color: #020039;
   line-height: 1.6;
   color: #ffffff;
+  overflow-x: hidden;
 }
+
+html { overflow-x: hidden; /* ← ADD THIS */ }
 
 /* ===========================
    HEADER & NAVIGATION
