@@ -602,6 +602,7 @@ footer {
 a {
   color: #4c35ff;
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 a:hover {
