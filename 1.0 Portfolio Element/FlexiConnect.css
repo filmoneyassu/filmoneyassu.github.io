@@ -1,0 +1,628 @@
+/* FlexiConnect Portfolio - Style.css */
+/* Color Palette: #020039 (Navy), #fdc274 (Orange), #4c35ff (Purple), #f9f8f2 (Off-White) */
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #020039;
+  background-color: #f9f8f2;
+}
+
+/* ===========================
+   HEADER & NAVIGATION
+   =========================== */
+
+header {
+  background: rgba(2, 0, 57, 0.95);
+  padding: 20px 40px;
+  box-shadow: 0 2px 10px rgba(94, 85, 255, 0.3);
+  margin-bottom: 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #5e55ff;
+  min-height: 80px;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #99f069;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #5e55ff;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #99f069;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #feadaf;
+  font-weight: 500;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #fc434b;
+}
+
+nav a.active {
+  color: #99f069;
+  font-weight: 600;
+}
+
+.main-content {
+  padding: 0 40px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Back link override - put this AFTER general link styles */
+a.back-link {
+  display: inline-block;
+  background: #5e55ff;
+  color: white !important;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: 500;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+a.back-link:hover {
+  background: #4e45fc;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(94, 85, 255, 0.4);
+}
+
+/* Project Hero Section */
+.project-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(2, 0, 57, 0.08);
+}
+
+.project-intro h1 {
+  font-size: 3rem;
+  color: #020039;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.project-intro p {
+  font-size: 1.1rem;
+  color: #020039;
+  opacity: 0.85;
+  line-height: 1.8;
+}
+
+.image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.image-placeholder img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Role Section */
+.role-section {
+  background: linear-gradient(135deg, #4c35ff 0%, #020039 100%);
+  color: #f9f8f2;
+  padding: 3rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 20px rgba(76, 53, 255, 0.2);
+}
+
+.role-section h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fdc274;
+}
+
+.role-section p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+.role-section ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.role-section li {
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(253, 194, 116, 0.15);
+  border-left: 4px solid #fdc274;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Process Timeline */
+.process-timeline {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(2, 0, 57, 0.06);
+}
+
+.process-timeline h3 {
+  font-size: 2rem;
+  color: #020039;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #fdc274;
+  padding-bottom: 0.5rem;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 4rem;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(2, 0, 57, 0.06);
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  color: #020039;
+  margin-bottom: 2rem;
+  border-left: 6px solid #4c35ff;
+  padding-left: 1.5rem;
+}
+
+.section h3 {
+  font-size: 1.8rem;
+  color: #4c35ff;
+  margin: 2.5rem 0 1.5rem;
+  font-weight: 700;
+}
+
+.section h4 {
+  font-size: 1.3rem;
+  color: #020039;
+  margin: 1.5rem 0 1rem;
+  font-weight: 600;
+}
+
+.section p {
+  font-size: 1.1rem;
+  color: #020039;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.section ul, .section ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.section li {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  color: #020039;
+}
+
+.section strong {
+  color: #4c35ff;
+  font-weight: 700;
+}
+
+/* Section Content Grid - for text + image layouts */
+.section-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+
+.section-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.section-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(2, 0, 57, 0.1);
+}
+
+/* Research Method Box */
+.research-method {
+  background-color: #f9f8f2;
+  border: 2px solid #fdc274;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.research-method h3 {
+  color: #020039;
+  margin-top: 0;
+}
+
+/* Insights and Recommendations */
+.insights-recommendations {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 2rem 0;
+  justify-content: center;
+}
+
+/* Ensure image is always on the left regardless of HTML order */
+.insights-recommendations .image-placeholder {
+  order: -1;
+  flex: 0 0 auto;
+  max-width: 400px;
+}
+
+/* Handle wrapper div that contains insights and recommendations */
+.insights-recommendations > div:not(.image-placeholder):not(.insights-panel):not(.recommendations-panel) {
+  flex: 0 0 auto;
+  max-width: 600px;
+  order: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.insights-recommendations .insights-panel {
+  flex: 0 0 auto;
+  max-width: 500px;
+  order: 0;
+}
+
+.insights-recommendations .recommendations-panel {
+  flex: 1 1 100%;
+  order: 1;
+}
+
+/* Special layout for Interview section - insights on left, image on right, recommendations below */
+.insights-recommendations.interview-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.insights-recommendations.interview-section .insights-panel {
+  order: 0;
+  flex: 0 0 auto;
+  max-width: 600px;
+}
+
+.insights-recommendations.interview-section .image-placeholder {
+  order: 1;
+  flex: 0 0 auto;
+  max-width: 400px;
+}
+
+.insights-recommendations.interview-section .recommendations-panel {
+  order: 2;
+  flex-basis: 100%;
+  width: 100%;
+  margin-left: 0;
+}
+
+.insights-panel, .recommendations-panel {
+  background: linear-gradient(135deg, rgba(253, 194, 116, 0.1) 0%, rgba(76, 53, 255, 0.05) 100%);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 5px solid #fdc274;
+}
+
+.insights-panel h4, .recommendations-panel h4 {
+  color: #020039;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.insight-item {
+  background-color: white;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid #4c35ff;
+  box-shadow: 0 2px 8px rgba(2, 0, 57, 0.05);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.insight-item strong {
+  color: #4c35ff;
+}
+
+/* Survey Charts */
+.survey-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.chart-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #f9f8f2;
+  border-radius: 10px;
+  border: 2px solid #fdc274;
+}
+
+/* Text Size Toggle Button - Riverhouse Style */
+.text-size-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  color: #020039;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.text-size-toggle:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.accessibility-label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #020039;
+}
+
+/* Toggle switch - default state */
+.text-size-toggle #floatingToggle {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background: #020039 !important;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
+
+/* Toggle switch - active state */
+.text-size-toggle #floatingToggle.active {
+  background: #99f069 !important;
+}
+
+/* Slider - default state */
+.text-size-toggle #floatingToggle .toggle-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Slider - active state */
+.text-size-toggle #floatingToggle.active .toggle-slider {
+  transform: translateX(25px);
+}
+
+footer {
+  background: rgba(2, 0, 57, 0.95);
+  padding: 30px 0;
+  margin-top: 60px;
+  margin-left: -40px;
+  margin-right: -40px;
+  border-top: 2px solid #5e55ff;
+  text-align: center;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.footer-content p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #f9f8f2;
+  font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  nav ul {
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #020039;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 50px;
+    transition: right 0.3s ease;
+    box-shadow: 0 2px 10px rgba(94, 85, 255, 0.3);
+    z-index: 1000;
+  }
+  
+  nav ul.active {
+    right: 0;
+  }
+  
+  nav li {
+    margin: 20px 0;
+  }
+  
+  nav a {
+    font-size: 1.2em;
+  }
+
+  .project-hero,
+  .insights-recommendations,
+  .insights-recommendations.interview-section,
+  .section-content-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .insights-recommendations .image-placeholder {
+    order: -1;
+  }
+
+  .project-intro h1 {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 2rem 1.5rem;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+  }
+
+  .section h3 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .role-section ul {
+    grid-template-columns: 1fr;
+  }
+
+  .survey-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .text-size-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+/* Link Styles */
+a {
+  color: #4c35ff;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #020039;
+}
+
+/* Large Text Mode */
+body.large-text {
+  font-size: 120%;
+}
+
+body.large-text .project-intro h1 {
+  font-size: 3.6rem;
+}
+
+body.large-text .section h2 {
+  font-size: 3rem;
+}
+
+body.large-text .section h3 {
+  font-size: 2.16rem;
+}

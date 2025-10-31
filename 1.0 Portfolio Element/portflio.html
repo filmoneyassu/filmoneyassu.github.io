@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>My Projects Portfolio</title>
+ <script src="jsanimation.js"></script>
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="styleAnimation.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+ <header>
+  <div class="header-content">
+   <div class="logo">
+    <img src="/1.0 Portfolio Element/images/img.jpg" alt="profile-image" class="profile-image">
+    Filmon.
+   </div>
+   <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="nav-menu">
+     <li><a href="#home" class="nav-link">Home</a></li>
+     <li><a href="#about" class="nav-link">About</a></li>
+     <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+   </nav>
+  </div>
+ </header>
+
+ <!-- Design and Code Animations 
+ <div class="design-animation-left">
+  <div class="design-tag-left">Empathize</div>
+  <div class="design-tag-left">Research</div>
+  <div class="design-tag-left">Define</div>
+  <div class="design-tag-left">Ideate</div>
+  <div class="design-tag-left">Prototype</div>
+  <div class="design-tag-left">Test</div>
+  <div class="design-tag-left">Iterate</div>
+  <div class="design-tag-left">Wireframe</div>
+  <div class="design-tag-left">UI Design</div>
+  <div class="design-tag-left">UX Design</div>
+  <div class="design-tag-left">User Flow</div>
+ </div>
+ 
+ <div class="code-animation">
+  <div class="code-element">
+   <span class="syntax-keyword">const</span> <span class="syntax-function">fetchData</span> = <span class="syntax-keyword">async</span>() => { }
+  </div>
+  <div class="code-element">
+   <span class="syntax-function">useState</span>(<span class="syntax-string">'portfolio'</span>)
+  </div>
+  <div class="code-element">
+   <span class="syntax-comment">// Clean architecture</span><br>
+   <span class="syntax-keyword">export</span> <span class="syntax-keyword">default</span> Component
+  </div>
+  <div class="code-element">
+   .<span class="syntax-function">map</span>(item => item.<span class="syntax-function">render</span>())
+  </div>
+ </div>
+ -->
+
+ <div class="main-content">
+  <div class="container">
+   <!-- HOME SECTION -->
+   <section id="home" class="hero-section">
+    <div class="decorative-shapes"></div>
+    <h1 class="hero-title">Hi, I'm <strong class="animated-text">
+    <div class="text-slider">
+    <div>Filmon.</div>
+    <div>Designer.</div>
+    <div>Developer.</div>
+    </div>
+    </strong></h1>
+    <p class="hero-subtitle">A UX/UI Designer & Backend Developer from Bergen, Norway.</p>
+    <div class="hero-buttons">
+     <a href="#contact" class="btn btn-primary">Get started</a>
+     <div class="btn btn-status">
+      <span class="status-dot"></span>
+      Available
+     </div>
+    </div>
+   </section>
+   
+   <h2>My projects</h2>
+   
+   <div class="projects-wrapper">
+    <div class="projects-container" id="projectsContainer">
+     <div class="projects-grid">
+      <a href="/1.0 Portfolio Element/Flexiconnect.html" class="project-card-link">
+       <div class="project-card">
+        <div class="project-image project-1" style="display: flex; align-items: center; justify-content: center;">
+         <img src="/1.0 Portfolio Element/images/png1.png" alt="" width="300" height="300">
+        </div>
+        <div class="project-content1">
+         <h3 class="project-title">FlexiConnect App</h3>
+         <div class="project-tags">
+          <span class="tag primary1">UX/UI</span>
+          <span class="tag primary1">Mobile app</span>
+          <span class="tag primary1">iOS app</span>
+          <span class="tag primary1">Mockup</span>
+         </div>
+        </div>
+       </div>
+      </a>
+
+      <a href="/1.0 Portfolio Element/riverhouse.html" class="project-card-link">
+       <div class="project-card">
+        <div class="project-image project-2" style="display: flex; align-items: center; justify-content: center;">
+         <img src="/1.0 Portfolio Element/images/png2.png" alt="" width="450" height="300">
+        </div>
+        <div class="project-content2">
+         <h3 class="project-title">Riverhouse Technologies</h3>
+         <div class="project-tags">
+          <span class="tag primary2">UX/UI</span>
+          <span class="tag primary2">Webapp</span>
+          <span class="tag primary2">Wireframe</span>
+          <span class="tag primary2">Lo-fi</span>
+         </div>
+        </div>
+       </div>
+      </a>
+
+      <a href="/1.0 Portfolio Element/Tigrinya.html" class="project-card-link">
+       <div class="project-card">
+        <div class="project-image project-3" style="display: flex; align-items: center; justify-content: center;">
+         <img src="/1.0 Portfolio Element/images/mockup.png" alt="" width="250" height="270">
+        </div>
+        <div class="project-content3">
+         <h3 class="project-title">Tigrinya Dictionary</h3>
+         <div class="project-tags">
+          <span class="tag primary3">UX/UI</span>
+          <span class="tag primary3">Mockup</span>
+          <span class="tag primary3">Language Trasletor</span>
+          <span class="tag primary3">iOS app</span>
+         </div>
+        </div>
+       </div>
+      </a>
+
+     </div>
+    </div>
+    
+<!-- Pagination Dots -->
+<div class="pagination-dots">
+  <span class="dot" data-index="0"></span>
+  <span class="dot active" data-index="1"></span>
+  <span class="dot" data-index="2"></span>
+</div>
+
+   <!-- ABOUT SECTION -->
+   <section id="about" class="about-section">
+    <div class="about-hero">
+     <h2 class="about-title">About Me</h2>
+    </div>
+
+    <div class="about-content">
+     <div class="about-image">
+      <img src="/1.0 Portfolio Element/images/mimg.png" alt="Filmon Eyassu" class="large-profile-image">
+     </div>
+     
+     <div class="about-text">
+      <h3>Hi, I'm Filmon!</h3>
+      <p>I'm a UX/UI Designer, iOS Developer, and Backend Developer based in Bergen, Norway. I create meaningful digital experiences by combining design skills with practical development expertise.</p>
+      
+      <p>I hold a UX design degree from Noroff School of Technology and Digital Media, with training in UX research, inclusive design, wireframes, and prototyping using Figma and Adobe XD.</p>
+      
+      <p>I'm a self-taught iOS developer with 6 years of experience and am currently studying backend development. This combination allows me to create user-centered solutions from design to implementation.</p>
+     </div>
+    </div>
+
+    <div class="skills-section">
+     <h3 class="skills-title">What I Do</h3>
+     <div class="skills-grid">
+      <div class="skill-card">
+       <div><img src="./images/uxs.png" style="width: 24px; height: 17px;" alt=""></div>
+       <h4>UI/UX</h4>
+        <p>Empathize & Research, Define Problems, Ideate Solutions, Prototype Designs, Test & Validate</p>
+      </div>
+      
+      <div class="skill-card">
+       <div><img src="./images/tools.png" style="width: 24px; height: 20px;"></div>
+       <h4>Tools</h4>
+      <p>Figma, Adobe XD, Sketch, Miro, FigJam, VS Code, Git, GitHub, Xcode, Swift</p>
+      </div>
+      
+      <div class="skill-card">
+       <div><img src="./images/devs.png" style="width: 25px; height: 24px;" alt=""></div>
+       <h4>Backend Development</h4>
+       <p>Learning server-side systems and databases.</p>
+      </div>
+      
+      <div class="skill-card">
+       <div><img src="./images/apss.png" style="width: 20px; height: 20px;" alt=""></div>
+       <h4>iOS Development</h4>
+       <p><p>Building native iOS applications using Swift, UIKit. Deploying to the App Store.</p></p>
+      </div>
+
+     </div>
+    </div>
+   </section>
+
+   <!-- PERSONAL SECTION -->
+
+   <!-- CONTACT SECTION -->
+   <section id="contact" class="contact-section-home">
+    <div class="contact-hero">
+     <h2 class="contact-title">Let's Work Together</h2>
+     <p class="contact-subtitle">Have a project in mind? I'd love to hear about it and discuss how we can bring your ideas to life.</p>
+    </div>
+
+    <div class="contact-content">
+     <div class="contact-info">
+      <h3>Get In Touch</h3>
+      
+      <div class="contact-items-wrapper">
+       <div class="contact-item">
+        <div><img src="./images/emails.png" style="width: 27px; height: 25px;" alt=""></div>
+        <div class="contact-details">
+         <h4>Email</h4>
+         <p>filmonaeyasu@yahoo.com</p>
+        </div>
+       </div>
+       
+       <div class="contact-item">
+        <div><img src="./images/locations.png" style="width: 30px; height: 30px;" alt=""></div>
+        <div class="contact-details">
+         <h4>Location</h4>
+         <p>Bergen, Norway</p>
+        </div>
+       </div>
+       
+       <div class="contact-item">
+        <div><img src="./images/clocks.png" style="width: 30px; height: 30px;" alt=""></div>
+        <div class="contact-details">
+         <h4>Response Time</h4>
+         <p>Usually within 24 hours</p>
+        </div>
+       </div>
+      </div>
+
+      <div class="social-links">
+       <h4>Follow Me</h4>
+       <a href="https://www.linkedin.com/in/filmoneyassu" target="_blank" rel="noopener" title="LinkedIn">
+       <div><img src="./images/inkedins.png" style="width: 30px; height: 30px;" alt=""></div></a>
+      </div>
+     </div>
+    </div>
+   </section>
+
+<!-- ACCESSIBILITY SECTION -->
+<section class="accessibility-section">
+ <div class="container">
+  <h2>Accessibility</h2>
+  <p>If you can't read the text on the screen, toggle the switch below to increase the font size</p>
+  <div class="accessibility-controls">
+   <span class="accessibility-label">Aa</span>
+   <div class="toggle-switch accessibility-toggle" id="accessToggleBtn" onclick="toggleTextSize()">
+    <div class="toggle-slider"></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+ <footer>
+  <div class="footer-content">
+   <p style="color: #dad9d4;">&copy; 2025 Filmon Eyassu. All rights reserved.</p>
+  </div>
+ </footer>
+
+
+
+</body>
+</html>

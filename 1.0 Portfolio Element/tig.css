@@ -1,0 +1,770 @@
+/* Tigrinya Dictionary - CSS */
+/* White background with colored accent sections */
+
+/* ===========================
+   GLOBAL STYLES
+   =========================== */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f8f2;
+  line-height: 1.6;
+  color: #020039;
+}
+
+/* ===========================
+   HEADER & NAVIGATION
+   =========================== */
+
+header {
+  background: rgba(2, 0, 57, 0.95);
+  padding: 20px 40px;
+  box-shadow: 0 2px 10px rgba(94, 85, 255, 0.3);
+  margin-bottom: 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #5e55ff;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #99f069;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #5e55ff;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #99f069;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #feadaf;
+  font-weight: 500;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #fc434b;
+}
+
+nav a.active {
+  color: #99f069;
+  font-weight: 600;
+}
+
+/* ===========================
+   MAIN CONTENT
+   =========================== */
+
+.main-content {
+  padding: 0 40px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   BACK LINK
+   =========================== */
+
+/* General links first */
+a {
+  color: #667eea;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #764ba2;
+}
+
+/* Back link override - put this AFTER general link styles */
+.back-link {
+  display: inline-block;
+  background: #5e55ff;
+  color: white !important;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background: #4e45fc;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(94, 85, 255, 0.4);
+}
+
+/* ===========================
+   PROJECT OVERVIEW SECTION
+   =========================== */
+
+.project-overview {
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px #0500a122;
+  margin-bottom: 80px;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.overview-text h1 {
+  font-size: 2.5em;
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.overview-text p {
+  font-size: 1.2em;
+  color: #2d3436;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.app-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  border: 3px solid #ffffff;
+}
+
+.mockup-image {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  animation: fadeInUp 1s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.mockup-image:hover {
+  transform: scale(1.02);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   KEY FEATURES SECTION
+   =========================== */
+
+.problem-section {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+  padding: 60px;
+  border-radius: 20px;
+  margin-bottom: 80px;
+  box-shadow: 0 4px 20px rgba(253, 203, 110, 0.3);
+}
+
+.problem-section h2 {
+  font-size: 2.5em;
+  color: #2d3436;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.problem-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.problem-item {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problem-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.problem-item h3 {
+  font-size: 1.4em;
+  margin: 0 0 15px 0;
+  color: #2d3436;
+  font-weight: 600;
+}
+
+.problem-item p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0;
+  color: #636e72;
+}
+
+/* ===========================
+   DESIGN PROCESS SECTION
+   =========================== */
+
+.process-section {
+  background: #ffffff;
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px #0500a122;
+  margin-bottom: 80px;
+}
+
+.process-section h2 {
+  font-size: 2.5em;
+  color: #2d3436;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.process-step {
+  margin-bottom: 60px;
+}
+
+.process-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-title {
+  font-size: 2em;
+  color: #667eea;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 3px solid #fdcb6e;
+  padding-bottom: 10px;
+  display: inline-block;
+  width: 100%;
+}
+
+.flow-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.step-grid {
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-text {
+  text-align: center;
+}
+
+.step-text h4 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #2d3436;
+  font-weight: 600;
+}
+
+.step-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #636e72;
+}
+
+.step-image {
+  text-align: center;
+}
+
+.step-image img {
+  border-radius: 18px;
+  border: 2px solid #afc1c7;
+  box-shadow: 0 4px 15px #0500a122;
+}
+
+/* ===========================
+   DESIGN PHILOSOPHY SECTION
+   =========================== */
+
+.solution-section {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  padding: 60px;
+  border-radius: 20px;
+  margin-bottom: 80px;
+  box-shadow: 0 4px 20px rgba(168, 237, 234, 0.3);
+}
+
+.solution-section h2 {
+  font-size: 2.5em;
+  color: #2d3436;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.solution-section p {
+  text-align: center;
+  font-size: 1.25em;
+  color: #2d3436;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ===========================
+   PROJECT OUTCOMES SECTION
+   =========================== */
+
+.results-section {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  padding: 80px 60px;
+  border-radius: 20px;
+  margin-bottom: 80px;
+  box-shadow: 0 8px 30px rgba(250, 112, 154, 0.3);
+}
+
+.results-section h2 {
+  font-size: 2.5em;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.results-section > p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.result-item {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 35px 25px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.result-item h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #fa709a;
+  font-weight: 700;
+}
+
+.result-item p {
+  font-size: 1rem;
+  color: #636e72;
+  line-height: 1.5;
+}
+
+/* ===========================
+   CONTACT/CTA SECTIONS
+   =========================== */
+
+.contact-section {
+  background: #ffffff;
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.contact-section h2 {
+  font-size: 2.5em;
+  color: #2d3436;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.contact-section p {
+  font-size: 1.2em;
+  color: #636e72;
+  margin-bottom: 30px;
+}
+
+/* ===========================
+   APP STORE BUTTON
+   =========================== */
+
+.app-store-button {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+  display: inline-block;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.app-store-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* ===========================
+   TEXT SIZE TOGGLE BUTTON
+   =========================== */
+
+.text-size-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  color: #020039;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.text-size-toggle:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.accessibility-label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #020039;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background: #020039;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
+
+.toggle-switch.active {
+  background: #99f069;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.active .toggle-slider {
+  transform: translateX(25px);
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+
+footer {
+  background-color: #020039;
+  color: #f9f8f2;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* ===========================
+   TYPOGRAPHY
+   =========================== */
+
+h1 {
+  font-size: 3em;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #636e72;
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #667eea;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4e45fc;
+}
+
+/* ===========================
+   LARGE TEXT MODE
+   =========================== */
+
+body.large-text {
+  font-size: 120%;
+}
+
+body.large-text h1 {
+  font-size: 3.6em;
+}
+
+body.large-text h2 {
+  font-size: 3em;
+}
+
+body.large-text h3 {
+  font-size: 1.8em;
+}
+
+body.large-text h4 {
+  font-size: 1.44em;
+}
+
+body.large-text p {
+  font-size: inherit;
+}
+
+body.large-text .overview-text h1 {
+  font-size: 3rem;
+}
+
+body.large-text .step-title {
+  font-size: 2.4rem;
+}
+
+body.large-text .problem-section h2,
+body.large-text .process-section h2,
+body.large-text .solution-section h2,
+body.large-text .results-section h2 {
+  font-size: 3rem;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  nav ul {
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #020039;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 50px;
+    transition: right 0.3s ease;
+    box-shadow: 0 2px 10px rgba(94, 85, 255, 0.3);
+    z-index: 1000;
+  }
+  
+  nav ul.active {
+    right: 0;
+  }
+  
+  nav li {
+    margin: 20px 0;
+  }
+  
+  nav a {
+    font-size: 1.2em;
+  }
+
+  .main-content {
+    padding: 0 20px;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .mockup-image {
+    max-width: 100%;
+  }
+
+  .problem-list {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-section {
+    grid-template-columns: 1fr;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-text h1 {
+    font-size: 2rem;
+  }
+
+  .problem-section,
+  .process-section,
+  .solution-section,
+  .results-section,
+  .contact-section,
+  .project-overview {
+    padding: 40px 30px;
+  }
+
+  .app-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .text-size-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===========================
+   LINK STYLES
+   =========================== */
+
+a {
+  color: #667eea;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #764ba2;
+}
