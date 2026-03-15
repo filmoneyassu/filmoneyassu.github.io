@@ -212,7 +212,14 @@ h2 {
   font-size: 2.5em;
   font-weight: 500;
   color: var(--color-accent);
-  margin-bottom: 40px;
+ 
+}
+
+.h21 {
+  font-size: 2.5em;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-top: -30px;
 }
 
 h3 {
