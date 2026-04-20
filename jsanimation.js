@@ -275,3 +275,16 @@ window.addEventListener('scroll', function() {
     }
   }
 });
+
+
+window.addEventListener('scroll', function() {
+  const links = document.querySelectorAll('nav a, .logo');
+
+  links.forEach(link => {
+    if (window.scrollY > 600) {
+      link.style.color = 'white';
+    } else {
+      link.style.color = '';
+    }
+  });
+});
