@@ -5,71 +5,47 @@
 document.addEventListener('DOMContentLoaded', function() {
   const projectsContainer = document.getElementById('projectsContainer');
   const dots = document.querySelectorAll('.pagination-dots .dot');
-  
+
   if (!projectsContainer || dots.length === 0) return;
-  
+
   function updateActiveDot() {
     const scrollLeft = projectsContainer.scrollLeft;
     const containerWidth = projectsContainer.offsetWidth;
-    
-    // Calculate which project is currently visible based on scroll position
-    // Each project takes up roughly 1/3 of the scrollable width
     const totalScrollWidth = projectsContainer.scrollWidth - containerWidth;
-    const scrollPercentage = scrollLeft / totalScrollWidth;
-    
-    let currentIndex = 0;
-    if (scrollPercentage < 0.33) {
-      currentIndex = 0;
-    } else if (scrollPercentage < 0.66) {
-      currentIndex = 1;
-    } else {
-      currentIndex = 2;
-    }
-    
-    // Update dots
+
+    // Works for any number of dots/projects
+    const steps = dots.length - 1;
+    const scrollPercentage = totalScrollWidth > 0 ? scrollLeft / totalScrollWidth : 0;
+    const currentIndex = steps > 0 ? Math.round(scrollPercentage * steps) : 0;
+
     dots.forEach((dot, index) => {
-      if (index === currentIndex) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
+      dot.classList.toggle('active', index === currentIndex);
     });
   }
-  
+
   // Update active dot based on scroll position
   projectsContainer.addEventListener('scroll', updateActiveDot);
-  
+
   // Click on dots to scroll to specific project
   dots.forEach((dot, index) => {
     dot.addEventListener('click', function() {
       const containerWidth = projectsContainer.offsetWidth;
       const totalScrollWidth = projectsContainer.scrollWidth - containerWidth;
-      
-      let scrollPosition = 0;
-      if (index === 0) {
-        scrollPosition = 0;
-      } else if (index === 1) {
-        scrollPosition = totalScrollWidth / 2;
-      } else {
-        scrollPosition = totalScrollWidth;
-      }
-      
+      const steps = dots.length - 1;
+
+      const scrollPosition = steps > 0 ? (totalScrollWidth / steps) * index : 0;
+
       projectsContainer.scrollTo({
         left: scrollPosition,
         behavior: 'smooth'
       });
-      
-      // Manually update dots immediately
+
       dots.forEach((d, i) => {
-        if (i === index) {
-          d.classList.add('active');
-        } else {
-          d.classList.remove('active');
-        }
+        d.classList.toggle('active', i === index);
       });
     });
   });
-  
+
   // Initialize on page load
   updateActiveDot();
 });
@@ -80,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function checkShapeProximity() {
   const shapes = document.querySelectorAll('.shape');
   const proximityThreshold = 80;
-  
+
   shapes.forEach((shape1, index1) => {
     let isNear = false;
     const rect1 = shape1.getBoundingClientRect();
@@ -88,7 +64,7 @@ function checkShapeProximity() {
       x: rect1.left + rect1.width / 2,
       y: rect1.top + rect1.height / 2
     };
-    
+
     shapes.forEach((shape2, index2) => {
       if (index1 !== index2) {
         const rect2 = shape2.getBoundingClientRect();
@@ -96,18 +72,18 @@ function checkShapeProximity() {
           x: rect2.left + rect2.width / 2,
           y: rect2.top + rect2.height / 2
         };
-        
+
         const distance = Math.sqrt(
           Math.pow(center2.x - center1.x, 2) +
           Math.pow(center2.y - center1.y, 2)
         );
-        
+
         if (distance < proximityThreshold) {
           isNear = true;
         }
       }
     });
-    
+
     if (isNear) {
       shape1.classList.add('near');
     } else {
@@ -126,9 +102,9 @@ function toggleTextSize() {
   const body = document.body;
   const accessToggleBtn = document.getElementById('accessToggleBtn');
   const floatingToggle = document.getElementById('floatingToggle');
-  
+
   body.classList.toggle('large-text');
-  
+
   // Update both toggles
   if (body.classList.contains('large-text')) {
     if (accessToggleBtn) accessToggleBtn.classList.add('active');
@@ -166,9 +142,9 @@ function openImage(src) {
 function toggleMenu() {
   const navMenu = document.getElementById('nav-menu');
   const menuToggle = document.querySelector('.menu-toggle');
-  
+
   navMenu.classList.toggle('active');
-  
+
   if (navMenu.classList.contains('active')) {
     menuToggle.innerHTML = '✕';
   } else {
@@ -182,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       const navMenu = document.getElementById('nav-menu');
       const menuToggle = document.querySelector('.menu-toggle');
-      
+
       if (navMenu && menuToggle) {
         navMenu.classList.remove('active');
         menuToggle.innerHTML = '☰';
@@ -197,18 +173,18 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
-  
+
   let current = '';
-  
+
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
-    
+
     if (window.pageYOffset >= sectionTop - 100) {
       current = section.getAttribute('id');
     }
   });
-  
+
   navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === '#' + current) {
@@ -222,7 +198,7 @@ window.addEventListener('scroll', () => {
 // ===========================
 document.addEventListener('DOMContentLoaded', function() {
   const tableImages = document.querySelectorAll('#personalTable img');
-  
+
   tableImages.forEach(img => {
     img.addEventListener('click', function() {
       // Create modal
@@ -240,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
         z-index: 10000;
         cursor: pointer;
       `;
-      
+
       const modalImg = document.createElement('img');
       modalImg.src = this.src;
       modalImg.alt = this.alt;
@@ -250,10 +226,10 @@ document.addEventListener('DOMContentLoaded', function() {
         border-radius: 10px;
         box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
       `;
-      
+
       modal.appendChild(modalImg);
       document.body.appendChild(modal);
-      
+
       // Close modal on click
       modal.addEventListener('click', function() {
         document.body.removeChild(modal);

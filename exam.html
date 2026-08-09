@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noroff EP E-Commerce — Project Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#10141B;
+    --surface:#1A2029;
+    --surface-2:#212834;
+    --border:#2A3240;
+    --text:#E7EAEE;
+    --text-dim:#8B96A8;
+    --text-faint:#5C6678;
+    --bronze:#C68B59;
+    --bronze-dim:#3A2C20;
+    --silver:#C9D0DA;
+    --silver-dim:#2C3138;
+    --gold:#E8BE6D;
+    --gold-dim:#3E331C;
+    --mint:#6EE7B7;
+    --mono:'JetBrains Mono', monospace;
+    --sans:'Inter', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- Hero ---------- */
+  header{
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--border);
+    position:relative;
+    overflow:hidden;
+  }
+
+.back-link {
+  display: inline-block;
+  background: var(--surface);;
+  color: var(--color-text-white);
+  padding: 12px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 40px;
+  transition: background 0.3s ease;
+}
+
+.back-link:hover { background: #4e45fc; }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--mint);
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    display:inline-block;
+    width:8px;height:8px;
+    border-radius:50%;
+    background:var(--mint);
+    box-shadow:0 0 0 4px rgba(110,231,183,0.12);
+  }
+  h1{
+    font-size:clamp(34px,6vw,56px);
+    font-weight:700;
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    max-width:14ch;
+  }
+  .lede{
+    margin-top:20px;
+    font-size:18px;
+    color:var(--text-dim);
+    max-width:54ch;
+  }
+  .badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:32px;
+  }
+  .badge{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--text-dim);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:6px 12px;
+    background:var(--surface);
+  }
+  .hero-links{
+    margin-top:36px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:14.5px;
+    padding:11px 22px;
+    border-radius:8px;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .btn-primary{
+    background:var(--mint);
+    color:#0B2A20;
+  }
+  .btn-primary:hover{transform:translateY(-1px);}
+  .btn-secondary{
+    border:1px solid var(--border);
+    color:var(--text);
+    background:transparent;
+  }
+  .btn-secondary:hover{border-color:var(--text-faint);transform:translateY(-1px);}
+
+  /* ---------- Sections ---------- */
+  section{padding:72px 0;border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+  .section-label{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--text-faint);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  h2{
+    font-size:clamp(24px,4vw,32px);
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin-bottom:16px;
+  }
+  .section-intro{
+    color:var(--text-dim);
+    max-width:60ch;
+    margin-bottom:40px;
+  }
+
+  /* ---------- Two apps ---------- */
+  .apps-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .app-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:24px;
+  }
+  .app-card .port{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--mint);
+    margin-bottom:10px;
+  }
+  .app-card h3{font-size:18px;font-weight:600;margin-bottom:10px;}
+  .app-card p{color:var(--text-dim);font-size:14.5px;margin-bottom:14px;}
+  .app-card ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .app-card li{
+    font-size:13.5px;
+    color:var(--text-dim);
+    display:flex;
+    gap:9px;
+    align-items:flex-start;
+  }
+  .app-card li::before{
+    content:"";
+    width:5px;height:5px;
+    border-radius:50%;
+    background:var(--text-faint);
+    margin-top:7px;
+    flex-shrink:0;
+  }
+
+  /* ---------- Membership ladder (signature) ---------- */
+  .ladder{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .tier{
+    display:grid;
+    grid-template-columns:120px 1fr 90px;
+    align-items:center;
+    gap:20px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px 22px;
+  }
+  .tier-name{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:15px;
+  }
+  .tier-name .range{
+    display:block;
+    font-family:var(--sans);
+    font-weight:400;
+    font-size:12.5px;
+    color:var(--text-faint);
+    margin-top:3px;
+  }
+  .tier-bar{
+    height:8px;
+    border-radius:999px;
+    background:var(--surface-2);
+    overflow:hidden;
+    position:relative;
+  }
+  .tier-bar i{
+    position:absolute;
+    inset:0;
+    width:0%;
+    border-radius:999px;
+    transform-origin:left;
+    animation:fillbar 1.4s ease forwards;
+    animation-delay:.2s;
+  }
+  .tier-discount{
+    font-family:var(--mono);
+    font-size:20px;
+    font-weight:700;
+    text-align:right;
+  }
+  .tier.bronze .tier-name{color:var(--bronze);}
+  .tier.bronze .tier-bar i{background:var(--bronze);--w:8%;}
+  .tier.bronze .tier-discount{color:var(--bronze);}
+  .tier.silver .tier-name{color:var(--silver);}
+  .tier.silver .tier-bar i{background:var(--silver);--w:50%;}
+  .tier.silver .tier-discount{color:var(--silver);}
+  .tier.gold .tier-name{color:var(--gold);}
+  .tier.gold .tier-bar i{background:var(--gold);--w:100%;}
+  .tier.gold .tier-discount{color:var(--gold);}
+  @keyframes fillbar{
+    from{width:0%;}
+    to{width:var(--w);}
+  }
+  .ladder-note{
+    margin-top:22px;
+    font-size:14px;
+    color:var(--text-dim);
+    border-left:2px solid var(--mint);
+    padding-left:16px;
+  }
+  .ladder-note code{
+    font-family:var(--mono);
+    font-size:13px;
+    background:var(--surface-2);
+    padding:2px 6px;
+    border-radius:4px;
+    color:var(--mint);
+  }
+
+  /* ---------- API terminal ---------- */
+  .terminal{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .terminal-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 16px;
+    border-bottom:1px solid var(--border);
+  }
+  .terminal-head span{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--surface-2);
+  }
+  .terminal-head .title{
+    margin-left:8px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--text-faint);
+  }
+  .terminal-body{padding:8px 0;}
+  .route{
+    display:grid;
+    grid-template-columns:74px 1fr;
+    gap:16px;
+    align-items:baseline;
+    padding:10px 20px;
+    font-family:var(--mono);
+    font-size:13.5px;
+  }
+  .route:hover{background:var(--surface-2);}
+  .method{font-weight:700;}
+  .method.get{color:var(--mint);}
+  .method.post{color:var(--gold);}
+  .method.put{color:var(--silver);}
+  .method.delete{color:var(--bronze);}
+  .route-path{color:var(--text);}
+  .route-note{
+    display:block;
+    font-family:var(--sans);
+    color:var(--text-faint);
+    font-size:12px;
+    margin-top:3px;
+  }
+
+  /* ---------- Architecture ---------- */
+  .arch{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:0;
+    align-items:center;
+  }
+  .arch-node{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+  }
+  .arch-node .label{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    margin-bottom:8px;
+  }
+  .arch-node strong{font-size:15px;font-weight:600;}
+  .arch-arrow{
+    text-align:center;
+    color:var(--text-faint);
+    font-family:var(--mono);
+    font-size:18px;
+  }
+  @media (max-width:680px){
+    .arch{grid-template-columns:1fr;gap:14px;}
+    .arch-arrow{transform:rotate(90deg);}
+  }
+
+  /* ---------- Stack ---------- */
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:14px;
+  }
+  .stack-item{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:16px;
+  }
+  .stack-item .cat{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    margin-bottom:6px;
+  }
+  .stack-item .name{font-size:14.5px;font-weight:500;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:48px 0 80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  footer .small{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--text-faint);
+  }
+  footer a{color:var(--mint);text-decoration:none;}
+
+  @media (max-width:680px){
+    .apps-grid{grid-template-columns:1fr;}
+    .tier{grid-template-columns:1fr;gap:10px;text-align:left;}
+    .tier-discount{text-align:left;}
+    .route{grid-template-columns:64px 1fr;}
+  }
+</style>
+</head>
+<body>
+
+  
+  
+  <header>
+    <div class="wrap">
+    <a href="/index.html" class="back-link">← Back to Projects</a>
+    <p class="eyebrow">Exam project — Full-stack e-commerce</p>
+    <h1>Noroff EP E-Commerce</h1>
+    <p class="lede">
+      A REST API and admin dashboard for an online store. Built with Node, Express,
+      Sequelize and MySQL — with JWT authentication, raw SQL search, automatic
+      membership discounts, and full Swagger documentation.
+    </p>
+    <div class="badges">
+      <span class="badge">Node.js</span>
+      <span class="badge">Express</span>
+      <span class="badge">MySQL</span>
+      <span class="badge">Sequelize</span>
+      <span class="badge">JWT</span>
+      <span class="badge">EJS</span>
+      <span class="badge">Bootstrap</span>
+      <span class="badge">Swagger</span>
+      <span class="badge">Jest + Supertest</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="section-label">Two apps, one store</p>
+    <h2>Backend API and admin dashboard, kept separate</h2>
+    <p class="section-intro">
+      The backend serves JSON to anyone — a customer app, Postman, or Swagger.
+      The admin dashboard is a separate Express + EJS app that talks to the
+      backend over HTTP, the same way any other client would.
+    </p>
+    <div class="apps-grid">
+      <div class="app-card">
+        <p class="port">localhost:3000</p>
+        <h3>Backend API</h3>
+        <p>Express, Sequelize and MySQL. Handles auth, products, carts, orders and membership logic.</p>
+        <ul>
+          <li>JWT auth — register, login, 2 hour tokens</li>
+          <li>Products, brands, categories with soft delete</li>
+          <li>Cart, checkout and order history</li>
+          <li>Raw SQL for product search and listing</li>
+          <li>Swagger UI at <code style="font-family:var(--mono);color:var(--mint)">/doc</code></li>
+        </ul>
+      </div>
+      <div class="app-card">
+        <p class="port">localhost:3001</p>
+        <h3>Admin dashboard</h3>
+        <p>Express + EJS + Bootstrap. Admin-only login, talks to the API via axios.</p>
+        <ul>
+          <li>Manage products, brands and categories</li>
+          <li>Search products by name, brand or category</li>
+          <li>View orders and update status</li>
+          <li>Promote users to admin</li>
+          <li>Edit membership discount percentages</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="section-label">Business logic</p>
+    <h2>Membership tiers, calculated automatically</h2>
+    <p class="section-intro">
+      Every checkout adds to a customer's lifetime item count. Once they cross
+      a threshold, their membership upgrades and the new discount applies
+      from their next order.
+    </p>
+
+    <div class="ladder">
+      <div class="tier bronze">
+        <div class="tier-name">Bronze<span class="range">0–14 items purchased</span></div>
+        <div class="tier-bar"><i></i></div>
+        <div class="tier-discount">0%</div>
+      </div>
+      <div class="tier silver">
+        <div class="tier-name">Silver<span class="range">15–29 items purchased</span></div>
+        <div class="tier-bar"><i></i></div>
+        <div class="tier-discount">15%</div>
+      </div>
+      <div class="tier gold">
+        <div class="tier-name">Gold<span class="range">30+ items purchased</span></div>
+        <div class="tier-bar"><i></i></div>
+        <div class="tier-discount">30%</div>
+      </div>
+    </div>
+
+    <p class="ladder-note">
+      The membership and discount used at checkout are stored on the order
+      itself — <code>discount</code> and <code>MembershipId</code> — so each
+      order keeps an accurate record even after the customer's tier changes later.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="section-label">API at a glance</p>
+    <h2>A consistent, predictable response shape</h2>
+    <p class="section-intro">
+      Every endpoint returns <code style="font-family:var(--mono);font-size:13px;background:var(--surface-2);padding:2px 6px;border-radius:4px;color:var(--mint)">{ status, statuscode, data }</code>
+      — success and error responses follow the same structure throughout.
+    </p>
+
+    <div class="terminal">
+      <div class="terminal-head">
+        <span></span><span></span><span></span>
+     
+      </div>
+      <div class="terminal-body">
+        <div class="route">
+          <span class="method post">POST</span>
+          <div>
+            <span class="route-path">/auth/register</span>
+            <span class="route-note">Validates input, hashes password with bcrypt</span>
+          </div>
+        </div>
+        <div class="route">
+          <span class="method post">POST</span>
+          <div>
+            <span class="route-path">/auth/login</span>
+            <span class="route-note">Login with username or email, returns a JWT</span>
+          </div>
+        </div>
+        <div class="route">
+          <span class="method get">GET</span>
+          <div>
+            <span class="route-path">/products</span>
+            <span class="route-note">Raw SQL join — returns brand and category names inline</span>
+          </div>
+        </div>
+        <div class="route">
+          <span class="method post">POST</span>
+          <div>
+            <span class="route-path">/search</span>
+            <span class="route-note">Raw SQL — matches product name, brand or category</span>
+          </div>
+        </div>
+        <div class="route">
+          <span class="method post">POST</span>
+          <div>
+            <span class="route-path">/cart</span>
+            <span class="route-note">Adds an item, checks stock before adding</span>
+          </div>
+        </div>
+        <div class="route">
+          <span class="method post">POST</span>
+          <div>
+            <span class="route-path">/cart/checkout/now</span>
+            <span class="route-note">Creates the order, applies discount, updates membership</span>
+          </div>
+        </div>
+        <div class="route">
+          <span class="method put">PUT</span>
+          <div>
+            <span class="route-path">/orders/:id/status</span>
+            <span class="route-note">Admin updates order status — in progress, ordered, completed</span>
+          </div>
+        </div>
+        <div class="route">
+          <span class="method put">PUT</span>
+          <div>
+            <span class="route-path">/users/:id/role</span>
+            <span class="route-note">Admin promotes a registered user to admin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="section-label">Architecture</p>
+    <h2>How the pieces talk to each other</h2>
+    <div class="arch">
+      <div class="arch-node">
+        <p class="label">Admin dashboard</p>
+        <strong>Express + EJS</strong>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node">
+        <p class="label">REST API</p>
+        <strong>Express + JWT</strong>
+      </div>
+    </div>
+    <div class="arch" style="margin-top:14px;">
+      <div class="arch-node">
+        <p class="label">Swagger / Postman</p>
+        <strong>API clients</strong>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node">
+        <p class="label">REST API</p>
+        <strong>Express + JWT</strong>
+      </div>
+    </div>
+    <div class="arch" style="margin-top:14px;">
+      <div class="arch-node" style="grid-column:2;">
+        <p class="label">Database</p>
+        <strong>MySQL + Sequelize</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="section-label">Tech stack</p>
+    <h2>Tools and libraries</h2>
+    <div class="stack-grid">
+      <div class="stack-item"><p class="cat">Runtime</p><p class="name">Node.js</p></div>
+      <div class="stack-item"><p class="cat">Framework</p><p class="name">Express</p></div>
+      <div class="stack-item"><p class="cat">Database</p><p class="name">MySQL</p></div>
+      <div class="stack-item"><p class="cat">ORM</p><p class="name">Sequelize</p></div>
+      <div class="stack-item"><p class="cat">Auth</p><p class="name">JWT + bcrypt</p></div>
+      <div class="stack-item"><p class="cat">Views</p><p class="name">EJS</p></div>
+      <div class="stack-item"><p class="cat">Styling</p><p class="name">Bootstrap</p></div>
+      <div class="stack-item"><p class="cat">Docs</p><p class="name">Swagger</p></div>
+      <div class="stack-item"><p class="cat">Testing</p><p class="name">Jest + Supertest</p></div>
+      <div class="stack-item"><p class="cat">HTTP client</p><p class="name">Axios</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;width:100%;">
+    <p class="small">Noroff EP E-Commerce — exam project</p>
+    <p class="small"><a href="#">Source on GitHub</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Pawfinder API – Filmon Eyassu</title>
+  <link rel="stylesheet" href="pawfinder.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Offside&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <!-- ─── HEADER (matches home) ─── -->
+  <header>
+    <div class="header-content">
+      <div class="logo">Filmon.</div>
+      <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul id="nav-menu">
+          <li><a href="/index.html#home" class="nav-link">Home</a></li>
+          <li><a href="/index.html#about" class="nav-link">About</a></li>
+          <li><a href="/index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <a href="/index.html" class="back-link">← Back to Projects</a>
+
+    <!-- ─── HERO ─── -->
+    <section class="project-overview">
+      <div class="overview-grid">
+        <div class="overview-text">
+          <p>A REST API that powers an animal adoption website. Built with Node.js, Express, MySQL, and JWT authentication.</p>
+          <p>Members can browse animals and adopt them. Admins can add new animals, manage users, and see who adopted what. The whole thing runs on Railway.</p>
+
+        </div>
+
+        <div class="hero-mockup">
+          <div class="code-card">
+            <div class="code-header">
+          <h1 class="case-h1">Pawfinder<br><span class="accent">Adoption API</span></h1>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─── KEY FEATURES ─── -->
+    <section class="case-section">
+      <h2>Key Features</h2>
+      <div class="problem-list">
+        <div class="problem-item">
+          <div class="problem-icon">🔐</div>
+          <h3>Secure Login with JWT</h3>
+          <p>The server gives you a signed token when you log in. Your browser sends it back with every request to prove who you are. Passwords are hashed with bcrypt — never stored as text.</p>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">👥</div>
+          <h3>Two Roles: Admin &amp; Member</h3>
+          <p>Admins can add or delete animals and see all users. Members can adopt animals and view their own adoptions. The API checks your role before every action.</p>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">🐾</div>
+          <h3>Full Animal Profiles</h3>
+          <p>Every animal has a name, species, size, age, image, location, description, and personality tags. All connected through a relational MySQL database.</p>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">📞</div>
+          <h3>Contact Adopters</h3>
+          <p>When someone adopts an animal, admins can see their contact info — email and phone. One click opens an email or phone call so they can reach out.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─── UI MOCKUPS ─── -->
+    <section class="case-section">
+      <h2>What the App Looks Like</h2>
+      <p class="section-intro">The frontend is a separate project — plain HTML, CSS, and JavaScript that calls this API. Here's a peek at what users see.</p>
+
+      <div class="ui-grid">
+
+        <div class="ui-card">
+          <div class="ui-card-tag">Animal Card</div>
+          <div class="mock-animal">
+            <div class="mock-img"></div>
+            <div class="mock-info">
+              <div class="mock-title-row">
+                <span class="mock-name">Coco</span>
+                <span class="mock-badge mock-badge-green">Available</span>
+              </div>
+              <div class="mock-meta">Dwarf Hamster · small · 4 yr old</div>
+              <div class="mock-tags">
+                <span class="mock-tag">calm</span>
+                <span class="mock-tag">scared</span>
+              </div>
+              <div class="mock-desc">A sweet little hamster who loves running on her wheel.</div>
+            </div>
+            <div class="mock-actions">
+              <button class="mock-btn mock-btn-primary">Adopt me</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-card">
+          <div class="ui-card-tag">Profile Card</div>
+          <div class="mock-profile">
+            <div class="mock-profile-header">
+              <div class="mock-avatar">U</div>
+              <div>
+                <div class="mock-profile-name">User</div>
+                <div class="mock-profile-role">member</div>
+              </div>
+            </div>
+            <div class="mock-row"><span class="mock-label">Email</span><span class="mock-value">user@example.com</span></div>
+            <div class="mock-row"><span class="mock-label">Phone</span><span class="mock-value">+47 123 45 678</span></div>
+            <div class="mock-row"><span class="mock-label">Address</span><span class="mock-value">Oslo, Norway</span></div>
+            <button class="mock-btn mock-btn-primary mock-btn-block">Save profile</button>
+          </div>
+        </div>
+
+        <div class="ui-card">
+          <div class="ui-card-tag">Admin: User List</div>
+          <div class="mock-users">
+            <div class="mock-user-row">
+              <div class="mock-avatar">U</div>
+              <div class="mock-user-info">
+                <div class="mock-user-name">User</div>
+                <div class="mock-user-meta">member · 2 adoptions</div>
+              </div>
+            </div>
+            <div class="mock-user-row">
+              <div class="mock-avatar">U2</div>
+              <div class="mock-user-info">
+                <div class="mock-user-name">User2</div>
+                <div class="mock-user-meta">member · 0 adoptions</div>
+              </div>
+            </div>
+            <div class="mock-user-row">
+              <div class="mock-avatar">A</div>
+              <div class="mock-user-info">
+                <div class="mock-user-name">System admin</div>
+                <div class="mock-user-meta">admin · 0 adoptions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-card">
+          <div class="ui-card-tag">Admin: Dashboard</div>
+          <div class="mock-stats">
+            <div class="mock-stat">
+              <div class="mock-stat-num">13</div>
+              <div class="mock-stat-label">Animals</div>
+            </div>
+            <div class="mock-stat">
+              <div class="mock-stat-num">10</div>
+              <div class="mock-stat-label">Species</div>
+            </div>
+            <div class="mock-stat">
+              <div class="mock-stat-num">3</div>
+              <div class="mock-stat-label">Adoptions</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ─── TECH ─── -->
+    <section class="case-section">
+      <h2>Tools I Used</h2>
+      <div class="badges">
+        <span class="badge">Node.js</span>
+        <span class="badge">Express</span>
+        <span class="badge">Sequelize</span>
+        <span class="badge">MySQL</span>
+        <span class="badge">JWT</span>
+        <span class="badge">bcrypt</span>
+        <span class="badge">Aiven</span>
+        <span class="badge">Railway</span>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-item">
+          <h4>Node.js &amp; Express</h4>
+          <p>The server runtime and the small library that handles incoming requests.</p>
+        </div>
+        <div class="tech-item">
+          <h4>Sequelize + MySQL</h4>
+          <p>Talks to the database in JavaScript. Handles tables, joins, and relationships.</p>
+        </div>
+        <div class="tech-item">
+          <h4>JWT</h4>
+          <p>A signed token the server issues at login. Browsers send it back to prove who they are.</p>
+        </div>
+        <div class="tech-item">
+          <h4>bcrypt</h4>
+          <p>Scrambles passwords before saving. If the database leaks, real passwords are safe.</p>
+        </div>
+        <div class="tech-item">
+          <h4>Railway</h4>
+          <p>Hosts the API on the internet with a public URL.</p>
+        </div>
+        <div class="tech-item">
+          <h4>CORS</h4>
+          <p>Lets the frontend (on Netlify) and backend (on Railway) safely talk to each other.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─── CONTACT ─── -->
+    <section class="case-section contact-cta-section">
+      <h2>Let's connect!</h2>
+      <p class="section-intro">Thank you for reviewing the Pawfinder project. I'd love to discuss it further or explore new opportunities.</p>
+      <div class="case-contact-rows">
+        <a href="mailto:filmonaeyasu@yahoo.com" class="case-contact-row">
+          <span class="contact-icon">📧</span>
+          <span>filmonaeyasu@yahoo.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/filmoneyassu" target="_blank" rel="noopener" class="case-contact-row">
+          <span class="contact-icon">🔗</span>
+          <span>linkedin.com/in/filmoneyassu</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Filmon Eyassu. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-menu").classList.toggle("active");
+    }
+  </script>
+</body>
+
+</html>

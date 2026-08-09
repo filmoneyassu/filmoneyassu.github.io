@@ -421,7 +421,7 @@ nav a.active {
   background: var(--color-primary);
   color: var(--color-text-white);
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 100px;
   text-decoration: none;
   font-weight: 500;
   margin-bottom: 40px;
@@ -551,7 +551,7 @@ p {
   transform: scale(1.2);
 }
 
-.pagination-dots .dot:nth-child(2) {
+.pagination-dots .dot.active {
   background: var(--color-primary) !important;
   width: 32px !important;
   height: 10px !important;
@@ -568,7 +568,10 @@ p {
 
 .projects-wrapper:has(.project-card-link:nth-child(1):hover) .pagination-dots .dot:nth-child(1),
 .projects-wrapper:has(.project-card-link:nth-child(2):hover) .pagination-dots .dot:nth-child(2),
-.projects-wrapper:has(.project-card-link:nth-child(3):hover) .pagination-dots .dot:nth-child(3) {
+.projects-wrapper:has(.project-card-link:nth-child(3):hover) .pagination-dots .dot:nth-child(3),
+.projects-wrapper:has(.project-card-link:nth-child(4):hover) .pagination-dots .dot:nth-child(4)
+
+{
   background: var(--color-primary) !important;
   width: 32px !important;
   height: 10px !important;
@@ -580,10 +583,10 @@ p {
   display: flex;
   gap: 30px;
   padding: 10px 0;
-  justify-content: center;
+  justify-content: flex-start; /* was center */
   align-items: stretch;
-   height: 450px;
-   transition: height 0.4s ease, box-shadow 0.3s ease;
+  height: 450px;
+  transition: height 0.4s ease, box-shadow 0.3s ease;
 }
 
 .project-card-link {
@@ -1041,6 +1044,10 @@ body.large-text .project-title { font-size: 26.4px; }
   .dark-section-wrapper .container,
   .about-section,
   .contact-section-home { padding: 0 16px; }
+
+  .pagination-dots { gap: 8px; padding: 16px 0; flex-wrap: wrap; }
+.pagination-dots .dot { width: 7px !important; height: 7px !important; }
+.pagination-dots .dot.active { width: 22px !important; height: 7px !important; }
 
   .h21 { padding: 0 16px; }
 
