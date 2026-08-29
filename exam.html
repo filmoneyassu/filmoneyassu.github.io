@@ -3,26 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Noroff EP E-Commerce — a full-stack REST API and admin dashboard for an online store, built with Node, Express, Sequelize and MySQL.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235e55ff'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
 <title>Noroff EP E-Commerce — Project Showcase</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Offside&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#10141B;
-    --surface:#1A2029;
-    --surface-2:#212834;
-    --border:#2A3240;
-    --text:#E7EAEE;
-    --text-dim:#8B96A8;
-    --text-faint:#5C6678;
+    --bg:#020039;
+    --primary:#5e55ff;
+    --surface:#0d0f52;
+    --surface-2:#141866;
+    --border:#5e55ff40;
+    --text:#f9f8f2;
+    --text-dim:#c6c4e0;
+    --text-faint:#8a86b8;
     --bronze:#C68B59;
     --bronze-dim:#3A2C20;
     --silver:#C9D0DA;
     --silver-dim:#2C3138;
     --gold:#E8BE6D;
     --gold-dim:#3E331C;
-    --mint:#6EE7B7;
+    --mint:#99f069;
     --mono:'JetBrains Mono', monospace;
     --sans:'Inter', sans-serif;
   }
@@ -34,30 +37,117 @@
     font-family:var(--sans);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    padding-top:72px;
   }
-  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+  .wrap{box-sizing:content-box;max-width:1200px;margin:0 auto;padding:0 40px;}
+
+  /* ---------- Site nav ----------
+     same layout, spacing, blur and hover pattern as home;
+     dark color mode so text stays readable on this page's dark background */
+  header{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:72px;
+    background:rgba(2, 0, 57, 0.6);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    box-shadow:none;
+    z-index:1000;
+    transition:all 0.3s ease;
+  }
+  .header-content{
+    box-sizing:content-box;
+    max-width:1200px;
+    margin:0 auto;
+    height:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 5vw;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    font-family:"Offside", sans-serif;
+    font-weight:bold;
+    font-size:1.4rem;
+    letter-spacing:-0.5px;
+    color:var(--text);
+    line-height:1;
+  }
+  .menu-toggle{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:none;
+    border:none;
+    font-size:1.4rem;
+    color:var(--text);
+    cursor:pointer;
+    padding:8px;
+    border-radius:8px;
+  }
+  .menu-toggle:hover,
+  .menu-toggle:focus-visible{
+    color:var(--mint);
+    background:rgba(255,255,255,0.06);
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:6px;
+    margin:0;
+    padding:0;
+    align-items:center;
+  }
+  nav a{
+    font-family:'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-decoration:none;
+    font-size:0.88rem;
+    font-weight:500;
+    color:var(--text-dim);
+    padding:8px 18px;
+    border-radius:100px;
+    transition:all 0.2s;
+    letter-spacing:0.02em;
+  }
+  nav a:hover,
+  nav a.active{
+    background:var(--primary);
+    color:#fff;
+  }
+  @media (max-width:768px){
+    .menu-toggle{ display:inline-flex; }
+    nav ul{
+      position:fixed;
+      top:72px;
+      right:-100%;
+      width:100%;
+      height:calc(100vh - 72px);
+      background:var(--bg);
+      flex-direction:column;
+      justify-content:flex-start;
+      align-items:center;
+      padding-top:50px;
+      transition:right 0.3s ease;
+      gap:10px;
+    }
+    nav ul.active{ right:0; }
+    nav li{ margin:10px 0; }
+    nav a{ font-size:1.1rem; }
+  }
 
   /* ---------- Hero ---------- */
-  header{
-    padding:88px 0 64px;
+  .hero{
+    padding:64px 0;
     border-bottom:1px solid var(--border);
     position:relative;
     overflow:hidden;
   }
-
-.back-link {
-  display: inline-block;
-  background: var(--surface);;
-  color: var(--color-text-white);
-  padding: 12px 24px;
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 500;
-  margin-bottom: 40px;
-  transition: background 0.3s ease;
-}
-
-.back-link:hover { background: #4e45fc; }
 
   .eyebrow{
     font-family:var(--mono);
@@ -76,7 +166,7 @@
     width:8px;height:8px;
     border-radius:50%;
     background:var(--mint);
-    box-shadow:0 0 0 4px rgba(110,231,183,0.12);
+    box-shadow:0 0 0 4px rgba(153,240,105,0.15);
   }
   h1{
     font-size:clamp(34px,6vw,56px);
@@ -126,7 +216,7 @@
   }
   .btn-primary{
     background:var(--mint);
-    color:#0B2A20;
+    color:var(--bg);
   }
   .btn-primary:hover{transform:translateY(-1px);}
   .btn-secondary{
@@ -383,19 +473,35 @@
 
   /* ---------- Footer ---------- */
   footer{
-    padding:48px 0 80px;
+    background: var(--bg);
+    padding: 30px 0;
+    margin-top: 40px;
+    border-top: 2px solid var(--primary);
+    text-align: center;
+  }
+  .footer-credit{
+    box-sizing:content-box;
     display:flex;
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
     gap:16px;
+    max-width:1200px;
+    margin:60px auto 0;
+    padding:0 40px;
   }
-  footer .small{
+  .footer-credit .small{
     font-family:var(--mono);
     font-size:12.5px;
     color:var(--text-faint);
   }
-  footer a{color:var(--mint);text-decoration:none;}
+  .footer-credit a{color:var(--mint);text-decoration:none;}
+  .footer-content p {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--text);
+    font-size: 0.9em;
+  }
 
   @media (max-width:680px){
     .apps-grid{grid-template-columns:1fr;}
@@ -410,8 +516,25 @@
   
   
   <header>
+    <div class="header-content">
+      <a href="/index.html" class="logo">Filmon.</a>
+      <nav>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <ul id="nav-menu">
+          <li><a href="/index.html#home" class="nav-link">Home</a></li>
+          <li><a href="/index.html#about" class="nav-link">About</a></li>
+          <li><a href="/index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
     <div class="wrap">
-    <a href="/index.html" class="back-link">← Back to Projects</a>
     <p class="eyebrow">Exam project — Full-stack e-commerce</p>
     <h1>Noroff EP E-Commerce</h1>
     <p class="lede">
@@ -431,7 +554,7 @@
       <span class="badge">Jest + Supertest</span>
     </div>
   </div>
-</header>
+</div>
 
 <section>
   <div class="wrap">
@@ -637,12 +760,17 @@
   </div>
 </section>
 
+<div class="footer-credit">
+  <p class="small">Noroff EP E-Commerce — exam project</p>
+  <p class="small"><a href="https://github.com/filmoneyassu/Noroff-EP-E-Commerce-exam-public" target="_blank" rel="noopener noreferrer"">Source on GitHub</a></p>
+</div>
+
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;width:100%;">
-    <p class="small">Noroff EP E-Commerce — exam project</p>
-    <p class="small"><a href="https://github.com/filmoneyassu/Noroff-EP-E-Commerce-exam-public" target="_blank" rel="noopener noreferrer"">Source on GitHub</a></p>
+  <div class="footer-content">
+    <p>&copy; 2026 Filmon Eyassu. All rights reserved.</p>
   </div>
 </footer>
 
+<script src="jsanimation.js" defer></script>
 </body>
 </html>

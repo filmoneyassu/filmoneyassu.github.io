@@ -125,36 +125,47 @@ header .logo {
 
 .menu-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
-  font-size: 1.5em;
-  color: #99f069;
+  font-size: 1.4rem;
+  color: var(--light-ink);
   cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+  color: var(--light-accent);
+  background: rgba(26,86,219,0.08);
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 6px;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 nav a {
   text-decoration: none;
-  color: #feadaf;
+  font-size: 0.88rem;
   font-weight: 500;
-  font-size: 1em;
-  transition: color 0.3s ease;
+  color: var(--light-ink-2);
+  padding: 8px 18px;
+  border-radius: 100px;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
 }
 
-nav a:hover {
-  color: #fc434b;
-}
-
+nav a:hover,
 nav a.active {
-  color: #99f069;
-  font-weight: 600;
+  background: var(--light-ink);
+  color: #fff;
 }
 
 .main-content {
@@ -164,26 +175,6 @@ nav a.active {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-/* Back link override - put this AFTER general link styles */
-a.back-link {
-  display: inline-block;
-  background: #5e55ff;
-  color: white !important;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none !important;
-  font-weight: 500;
-  margin-bottom: 40px;
-  transition: all 0.3s ease;
-}
-
-a.back-link:hover {
-  background: #4e45fc;
-  color: white !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(94, 85, 255, 0.4);
 }
 
 /* Project Hero Section */
@@ -239,7 +230,7 @@ a.back-link:hover {
 .role-section h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #fdc274;
+  color: #e8c55e;
 }
 
 .role-section p {
@@ -275,7 +266,7 @@ a.back-link:hover {
   font-size: 2rem;
   color: #020039;
   margin-bottom: 2rem;
-  border-bottom: 3px solid #fdc274;
+  border-bottom: 3px solid #e8c55e;
   padding-bottom: 0.5rem;
 }
 
@@ -365,7 +356,7 @@ a.back-link:hover {
 /* Research Method Box */
 .research-method {
   background-color: #f9f8f2;
-  border: 2px solid #fdc274;
+  border: 2px solid #e8c55e;
   border-radius: 10px;
   padding: 2rem;
   margin: 2rem 0;
@@ -444,10 +435,10 @@ a.back-link:hover {
 }
 
 .insights-panel, .recommendations-panel {
-  background: linear-gradient(135deg, rgba(253, 194, 116, 0.1) 0%, rgba(76, 53, 255, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(232, 197, 94, 0.15) 0%, rgba(76, 53, 255, 0.05) 100%);
   padding: 1.5rem;
   border-radius: 10px;
-  border-left: 5px solid #fdc274;
+  border-left: 5px solid #e8c55e;
 }
 
 .insights-panel h4, .recommendations-panel h4 {
@@ -487,7 +478,7 @@ a.back-link:hover {
   padding: 1.5rem;
   background-color: #f9f8f2;
   border-radius: 10px;
-  border: 2px solid #fdc274;
+  border: 2px solid #e8c55e;
 }
 
 /* Text Size Toggle Button - Riverhouse Style */
@@ -555,56 +546,52 @@ a.back-link:hover {
 }
 
 footer {
-  background: #020039;
+  background: var(--color-bg);
   padding: 30px 0;
   margin-top: 60px;
-  border-top: 2px solid #5e55ff;
+  border-top: 2px solid var(--color-primary);
   text-align: center;
-  position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
 }
 
 .footer-content p {
   max-width: 1200px;
   margin: 0 auto;
-  color: #f9f8f2;
+  color: var(--color-text);
   font-size: 0.9em;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: inline-flex;
   }
-  
+
   nav ul {
     position: fixed;
-    top: 80px;
+    top: 72px;
     right: -100%;
     width: 100%;
-    height: calc(100vh - 80px);
-    background: #020039;
+    height: calc(100vh - 72px);
+    background: var(--light-bg);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 50px;
     transition: right 0.3s ease;
-    box-shadow: 0 2px 10px rgba(94, 85, 255, 0.3);
     z-index: 1000;
+    gap: 10px;
   }
-  
+
   nav ul.active {
     right: 0;
   }
-  
+
   nav li {
-    margin: 20px 0;
+    margin: 10px 0;
   }
-  
+
   nav a {
-    font-size: 1.2em;
+    font-size: 1.1rem;
   }
 
   .project-hero,
@@ -702,7 +689,7 @@ body.large-text .section h3 {
   text-align: center;
   font-size: 28px;
   font-weight: 700;
-  color: #2E2B2B;
+  color: var(--light-ink);
   margin-bottom: 25px;
 }
 
@@ -715,7 +702,7 @@ body.large-text .section h3 {
 
 .moscow-column-enhanced {
   text-align: center;
-  background: #F4D7AD;
+  background: var(--color-accent-tint-30);
   padding: 20px 15px;
   border-radius: 12px;
   transition: transform 0.3s;
@@ -729,21 +716,21 @@ body.large-text .section h3 {
 .moscow-column-enhanced h3 {
   font-size: 28px;
   font-weight: 700;
-  color: #2E2B2B;
+  color: var(--light-ink);
   margin-bottom: 8px;
 }
 
 .moscow-column-enhanced h4 {
   font-size: 16px;
   font-weight: 600;
-  color: #2E2B2B;
+  color: var(--light-ink);
   margin-bottom: 12px;
 }
 
 .moscow-column-enhanced p {
   font-size: 13px;
   line-height: 1.5;
-  color: #2E2B2B;
+  color: var(--light-ink);
 }
 
 /* Accessibility Cards */

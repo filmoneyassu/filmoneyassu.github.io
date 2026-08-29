@@ -127,36 +127,48 @@ header .logo {
 
 .menu-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
-  font-size: 1.5em;
-  color: #99f069;
+  font-size: 1.4rem;
+  color: var(--light-ink);
   cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+  color: var(--light-accent);
+  background: rgba(26,86,219,0.08);
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 6px;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 nav a {
   text-decoration: none;
-  color: #feadaf;
+  font-size: 0.88rem;
   font-weight: 500;
-  font-size: 1em;
-  transition: color 0.3s ease;
+  color: var(--light-ink-2);
+  padding: 8px 18px;
+  border-radius: 100px;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
 }
 
-nav a:hover {
-  color: #fc434b;
-}
-
+nav a:hover,
 nav a.active {
-  color: #99f069;
-  font-weight: 600;
+  background: var(--light-ink);
+  color: #fff;
+  font-weight: 500;
 }
 
 /* ===========================
@@ -178,33 +190,13 @@ nav a.active {
 
 /* General links first */
 a {
-  color: #667eea;
+  color: var(--light-accent);
   transition: color 0.3s ease;
   text-decoration: none;
 }
 
 a:hover {
-  color: #764ba2;
-}
-
-/* Back link override - put this AFTER general link styles */
-.back-link {
-  display: inline-block;
-  background: #5e55ff;
-  color: white !important;
-  padding: 12px 24px;
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 500;
-  margin-bottom: 40px;
-  transition: all 0.3s ease;
-}
-
-.back-link:hover {
-  background: #4e45fc;
-  color: white !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(94, 85, 255, 0.4);
+  color: var(--color-primary);
 }
 
 /* ===========================
@@ -234,7 +226,7 @@ a:hover {
 
 .overview-text p {
   font-size: 1.2em;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 20px;
   line-height: 1.8;
 }
@@ -277,16 +269,16 @@ a:hover {
    =========================== */
 
 .problem-section {
-  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+  background: linear-gradient(135deg, var(--color-accent-tint-20) 0%, var(--color-accent-tint-30) 100%);
   padding: 60px;
   border-radius: 20px;
   margin-bottom: 80px;
-  box-shadow: 0 4px 20px rgba(253, 203, 110, 0.3);
+  box-shadow: 0 4px 20px var(--color-accent-tint-30);
 }
 
 .problem-section h2 {
   font-size: 2.5em;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 40px;
   text-align: center;
   font-weight: 700;
@@ -320,7 +312,7 @@ a:hover {
 .problem-item h3 {
   font-size: 1.4em;
   margin: 0 0 15px 0;
-  color: #2d3436;
+  color: var(--light-ink);
   font-weight: 600;
 }
 
@@ -328,7 +320,7 @@ a:hover {
   font-size: 1em;
   line-height: 1.6;
   margin: 0;
-  color: #636e72;
+  color: var(--light-ink-2);
 }
 
 /* ===========================
@@ -345,7 +337,7 @@ a:hover {
 
 .process-section h2 {
   font-size: 2.5em;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 50px;
   text-align: center;
   font-weight: 700;
@@ -361,11 +353,11 @@ a:hover {
 
 .step-title {
   font-size: 2em;
-  color: #667eea;
+  color: var(--light-accent);
   margin-bottom: 30px;
   text-align: center;
   font-weight: 600;
-  border-bottom: 3px solid #fdcb6e;
+  border-bottom: 3px solid var(--light-accent);
   padding-bottom: 10px;
   display: inline-block;
   width: 100%;
@@ -392,14 +384,14 @@ a:hover {
 .step-text h4 {
   font-size: 1.4rem;
   margin-bottom: 15px;
-  color: #2d3436;
+  color: var(--light-ink);
   font-weight: 600;
 }
 
 .step-text p {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #636e72;
+  color: var(--light-ink-2);
 }
 
 .step-image {
@@ -417,16 +409,16 @@ a:hover {
    =========================== */
 
 .solution-section {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background: linear-gradient(135deg, var(--color-primary-tint-10) 0%, var(--color-primary-tint-20) 100%);
   padding: 60px;
   border-radius: 20px;
   margin-bottom: 80px;
-  box-shadow: 0 4px 20px rgba(168, 237, 234, 0.3);
+  box-shadow: 0 4px 20px var(--color-primary-tint-20);
 }
 
 .solution-section h2 {
   font-size: 2.5em;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 30px;
   text-align: center;
   font-weight: 700;
@@ -435,7 +427,7 @@ a:hover {
 .solution-section p {
   text-align: center;
   font-size: 1.25em;
-  color: #2d3436;
+  color: var(--light-ink);
   line-height: 1.8;
   max-width: 900px;
   margin: 0 auto;
@@ -447,11 +439,11 @@ a:hover {
    =========================== */
 
 .results-section {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-primary) 100%);
   padding: 80px 60px;
   border-radius: 20px;
   margin-bottom: 80px;
-  box-shadow: 0 8px 30px rgba(250, 112, 154, 0.3);
+  box-shadow: 0 8px 30px var(--color-primary-tint-30);
 }
 
 .results-section h2 {
@@ -472,16 +464,26 @@ a:hover {
 .results-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 24px;
 }
 
 .result-item {
+  position: relative;
   background: rgba(255, 255, 255, 0.95);
-  padding: 35px 25px;
-  border-radius: 12px;
+  padding: 32px 25px 28px;
+  border-radius: 14px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.result-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), var(--light-accent));
 }
 
 .result-item:hover {
@@ -489,16 +491,37 @@ a:hover {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
+.result-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--color-accent-tint-20);
+  color: var(--color-primary);
+  font-size: 1.3rem;
+}
+
 .result-item h3 {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
-  color: #fa709a;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  color: var(--light-ink);
   font-weight: 700;
 }
 
+.result-item h3 span {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--light-accent);
+  margin-top: 2px;
+}
+
 .result-item p {
-  font-size: 1rem;
-  color: #636e72;
+  font-size: 0.95rem;
+  color: var(--light-ink-2);
   line-height: 1.5;
 }
 
@@ -517,15 +540,47 @@ a:hover {
 
 .contact-section h2 {
   font-size: 2.5em;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 20px;
   font-weight: 700;
 }
 
 .contact-section p {
   font-size: 1.2em;
-  color: #636e72;
+  color: var(--light-ink-2);
   margin-bottom: 30px;
+}
+
+.case-contact-rows {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.case-contact-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--light-ink);
+  font-weight: 500;
+  font-size: 0.95em;
+  padding: 14px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 100px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.case-contact-row:hover {
+  background: var(--color-primary-tint-10);
+  border-color: var(--light-accent);
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
 }
 
 /* ===========================
@@ -538,17 +593,17 @@ a:hover {
   font-size: 1.1em;
   display: inline-block;
   padding: 18px 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--light-accent) 0%, var(--color-primary) 100%);
   border-radius: 10px;
   text-align: center;
   transition: all 0.3s ease;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(94, 85, 255, 0.3);
 }
 
 .app-store-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+  box-shadow: 0 8px 25px rgba(94, 85, 255, 0.5);
 }
 
 /* ===========================
@@ -619,21 +674,17 @@ a:hover {
    =========================== */
 
 footer {
-  background: #020039;
+  background: var(--color-bg);
   padding: 30px 0;
   margin-top: 60px;
-  border-top: 2px solid #5e55ff;
+  border-top: 2px solid var(--color-primary);
   text-align: center;
-  position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
 }
 
 .footer-content p {
   max-width: 1200px;
   margin: 0 auto;
-  color: #f9f8f2;
+  color: var(--color-text);
   font-size: 0.9em;
 }
 
@@ -644,40 +695,40 @@ footer {
 h1 {
   font-size: 3em;
   font-weight: 700;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 20px;
 }
 
 h2 {
   font-size: 2.5em;
   font-weight: 600;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 40px;
 }
 
 h3 {
   font-size: 1.5em;
   font-weight: 600;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 20px;
 }
 
 h4 {
   font-size: 1.2em;
   font-weight: 600;
-  color: #2d3436;
+  color: var(--light-ink);
   margin-bottom: 10px;
 }
 
 p {
-  color: #636e72;
+  color: var(--light-ink-2);
   font-size: 1.1em;
   line-height: 1.7;
   margin-bottom: 20px;
 }
 
 a {
-  color: #667eea;
+  color: var(--light-accent);
   transition: color 0.3s ease;
 }
 
@@ -732,35 +783,41 @@ body.large-text .results-section h2 {
    RESPONSIVE DESIGN
    =========================== */
 
+@media (max-width: 992px) and (min-width: 769px) {
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: inline-flex;
   }
-  
+
   nav ul {
     position: fixed;
-    top: 80px;
+    top: 72px;
     right: -100%;
     width: 100%;
-    height: calc(100vh - 80px);
-    background: #020039;
+    height: calc(100vh - 72px);
+    background: var(--light-bg);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 50px;
     transition: right 0.3s ease;
-    box-shadow: 0 2px 10px rgba(94, 85, 255, 0.3);
     z-index: 1000;
+    gap: 10px;
   }
-  
+
   nav ul.active {
     right: 0;
   }
-  
+
   nav li {
-    margin: 20px 0;
+    margin: 10px 0;
   }
-  
+
   nav a {
     font-size: 1.2em;
   }
@@ -828,11 +885,11 @@ body.large-text .results-section h2 {
    =========================== */
 
 a {
-  color: #667eea;
+  color: var(--light-accent);
   transition: color 0.3s ease;
   text-decoration: none;
 }
 
 a:hover {
-  color: #764ba2;
+  color: var(--color-primary);
 }

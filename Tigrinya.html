@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tigrinya Dictionary — a mobile dictionary app UX case study offering offline, bidirectional English-Tigrinya search.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235e55ff'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
   <title>Tigrinya Dictionary - Filmon Eyassu</title>
   <link rel="stylesheet" href="tig.css">
   <script src="jsanimation.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=DM+Serif+Display:ital@0;1&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.css">
 
@@ -20,16 +24,24 @@
 <body>
   <header>
     <div class="header-content">
-      <a href="index.html">
-        <div class="logo">
-          Filmon.
-        </div>
+      <a href="/index.html" class="logo">Filmon.</a>
+      <nav>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <ul id="nav-menu">
+          <li><a href="/index.html#home" class="nav-link">Home</a></li>
+          <li><a href="/index.html#about" class="nav-link">About</a></li>
+          <li><a href="/index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <div class="main-content">
     <div class="container">
-      <a href="/index.html" class="back-link">← Back to Projects</a>
 
       <div class="project-overview">
         <div class="overview-grid">
@@ -136,67 +148,64 @@
         <p>The Tigrinya Dictionary app has achieved significant milestones in user engagement and satisfaction.</p>
         <div class="results-grid">
           <div class="result-item">
-            <h3>38.5K+ Downloads</h3>
+            <div class="result-icon"><i class="bi bi-download"></i></div>
+            <h3>38.5K+ <span>Downloads</span></h3>
             <p>241% growth in total downloads across global markets</p>
           </div>
           <div class="result-item">
-            <h3>4.6 Star Rating</h3>
+            <div class="result-icon"><i class="bi bi-star-fill"></i></div>
+            <h3>4.6 <span>Star Rating</span></h3>
             <p>1,360 user ratings reflecting excellent user satisfaction</p>
           </div>
           <div class="result-item">
-            <h3>79.3% Organic</h3>
+            <div class="result-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h3>79.3% <span>Organic</span></h3>
             <p>App Store Search drives majority of downloads</p>
           </div>
           <div class="result-item">
-            <h3>1.81M Impressions</h3>
+            <div class="result-icon"><i class="bi bi-eye-fill"></i></div>
+            <h3>1.81M <span>Impressions</span></h3>
             <p>99.7K% increase in app visibility and reach</p>
           </div>
           <div class="result-item">
-            <h3>12 Languages</h3>
+            <div class="result-icon"><i class="bi bi-translate"></i></div>
+            <h3>12 <span>Languages</span></h3>
             <p>Supporting multilingual learning communities worldwide</p>
           </div>
           <div class="result-item">
-            <h3>50K+ Words</h3>
+            <div class="result-icon"><i class="bi bi-book-half"></i></div>
+            <h3>50K+ <span>Words</span></h3>
             <p>Comprehensive offline database for thorough learning</p>
           </div>
         </div>
       </div>
 
 
-      <div style="text-align: center; padding: 60px 0;">
-        <h2 style="font-size: 2em; margin-bottom: 20px;">Experience the App</h2>
-        <p style="font-size: 1.2em; margin-bottom: 40px;">Download Tigrinya Dictionary on the App Store and join
-          thousands of users learning languages offline.</p>
-        <div style="display: flex; gap: 30px; justify-content: center; align-items: center;">
-          <a href="https://apps.apple.com/no/app/tigrinya-learn-12-languages/id1252973349" class="app-store-button"
-            target="_blank" rel="noopener">📱 Download on App Store</a>
+      <div class="contact-section">
+        <h2>Experience the App</h2>
+        <p>Download Tigrinya Dictionary on the App Store and join thousands of users learning languages offline.</p>
+        <a href="https://apps.apple.com/no/app/tigrinya-learn-12-languages/id1252973349" class="app-store-button"
+          target="_blank" rel="noopener">Download on the App Store</a>
+      </div>
+
+      <div class="contact-section">
+        <h2>Let's connect!</h2>
+        <p>Thank you for reviewing the Tigrinya Dictionary project. I'd love to discuss this project further or
+          explore new opportunities.</p>
+        <div class="case-contact-rows">
+          <a href="mailto:filmonaeyasu@yahoo.com" class="case-contact-row">
+            <img src="/images/emails.black.png" alt="" class="contact-icon">
+            <span>filmonaeyasu@yahoo.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/filmoneyassu" target="_blank" rel="noopener" class="case-contact-row">
+            <img src="/images/inkedin-black.png" alt="" class="contact-icon">
+            <span>linkedin.com/in/filmoneyassu</span>
+          </a>
         </div>
       </div>
+
     </div>
   </div>
-
-
-
-  <div style="text-align: center; padding: 60px 0;">
-    <h2 style="font-size: 2em; margin-bottom: 20px;">Let's connect!</h2>
-    <p style="font-size: 1.2em; margin-bottom: 40px;">Thank you for reviewing the Tigrinya Dictionary project. I'd love
-      to discuss this project further or explore new opportunities.</p>
-    <div style="display: flex; gap: 30px; justify-content: center; align-items: center;">
-      <a href="mailto:filmonaeyasu@yahoo.com" style="color: #1a73e8; text-decoration: none; font-size: 1.1em;">Email
-        <div><img src="/images/emails.black.png" style="width: 30px; height: 30px;" alt=""></div>
-      </a>
-
-      <a href="https://www.linkedin.com/in/filmoneyassu"
-        style="color: #1a73e8; text-decoration: none; font-size: 1.1em;" target="_blank" rel="noopener"
-        title="LinkedIn">LinkedIn
-        <div><img src="/images/inkedin-black.png" style="width: 32px; height: 32px;" alt=""></div>
-      </a>
-    </div>
-  </div>
-  </div>
-  </div>
-
-
 
   <button class="text-size-toggle" onclick="toggleTextSize()" id="textSizeBtn" title="Toggle text size">
     <span class="accessibility-label">Aa</span>
@@ -207,7 +216,7 @@
 
   <footer>
     <div class="footer-content">
-      <p style="color: #dad9d4;">&copy; 2026 Filmon Eyassu. All rights reserved.</p>
+      <p>&copy; 2026 Filmon Eyassu. All rights reserved.</p>
     </div>
   </footer>
 

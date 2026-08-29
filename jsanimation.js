@@ -48,6 +48,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize on page load
   updateActiveDot();
+
+  // Let vertical mouse-wheel scroll the carousel horizontally
+  projectsContainer.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    const maxScrollLeft = projectsContainer.scrollWidth - projectsContainer.clientWidth;
+    if (maxScrollLeft <= 0) return;
+    e.preventDefault();
+    projectsContainer.scrollLeft += e.deltaY;
+  }, { passive: false });
+
+  // Click-and-drag to scroll on desktop
+  let isDragging = false;
+  let dragMoved = false;
+  let dragStartX = 0;
+  let dragStartScrollLeft = 0;
+
+  projectsContainer.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    dragMoved = false;
+    projectsContainer.classList.add('dragging');
+    dragStartX = e.pageX;
+    dragStartScrollLeft = projectsContainer.scrollLeft;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const delta = e.pageX - dragStartX;
+    if (Math.abs(delta) > 5) dragMoved = true;
+    projectsContainer.scrollLeft = dragStartScrollLeft - delta;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+    projectsContainer.classList.remove('dragging');
+  });
+
+  // Suppress the click-through navigation that would otherwise fire
+  // on the project card link at the end of a drag
+  projectsContainer.addEventListener('click', (e) => {
+    if (dragMoved) {
+      e.preventDefault();
+      e.stopPropagation();
+      dragMoved = false;
+    }
+  }, true);
 });
 
 // ===========================
@@ -142,26 +188,24 @@ function openImage(src) {
 function toggleMenu() {
   const navMenu = document.getElementById('nav-menu');
   const menuToggle = document.querySelector('.menu-toggle');
+  const isOpen = navMenu.classList.toggle('active');
 
-  navMenu.classList.toggle('active');
-
-  if (navMenu.classList.contains('active')) {
-    menuToggle.innerHTML = '✕';
-  } else {
-    menuToggle.innerHTML = '☰';
-  }
+  menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  menuToggle.innerHTML = isOpen
+    ? '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l14 14M18 4L4 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+    : '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 }
 
-// Close menu when clicking on a link
+// Close mobile menu when a nav link is clicked
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('nav a').forEach(link => {
+  document.querySelectorAll('#nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
       const navMenu = document.getElementById('nav-menu');
       const menuToggle = document.querySelector('.menu-toggle');
-
-      if (navMenu && menuToggle) {
+      if (navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
-        menuToggle.innerHTML = '☰';
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
       }
     });
   });
@@ -252,15 +296,23 @@ window.addEventListener('scroll', function() {
   }
 });
 
+// ===========================
+// HEADER NAV COLOR — switches to light text once the dark
+// "My Projects" section actually scrolls in behind the translucent header
+// ===========================
+(function() {
+  const header = document.querySelector('header');
+  const darkSection = document.querySelector('.dark-section-wrapper');
+  if (!header || !darkSection) return;
 
-window.addEventListener('scroll', function() {
-  const links = document.querySelectorAll('nav a, .logo');
+  const headerHeight = header.offsetHeight;
 
-  links.forEach(link => {
-    if (window.scrollY > 600) {
-      link.style.color = 'white';
-    } else {
-      link.style.color = '';
-    }
-  });
-});
+  function updateHeaderTheme() {
+    const top = darkSection.getBoundingClientRect().top;
+    header.classList.toggle('header-on-dark', top <= headerHeight);
+  }
+
+  window.addEventListener('scroll', updateHeaderTheme, { passive: true });
+  updateHeaderTheme();
+})();
+
